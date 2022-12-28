@@ -1,16 +1,16 @@
 # leaflet_vector
 
-A new Flutter project.
+This is a sample app showing how to load ArcGIS vector basemaps using a free 
+ArcGIS Platform account and Leaflet.js
+
+![VSCode Screenshot](./assets/screenshot-arcgis-flutter.png)
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Place a `api_key.dart` file within lib/screens with the following content (replacing the API key)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```dart
+// Create a free account: https://developers.arcgis.com/sign-up
+// Grab the API from: https://developers.arcgis.com/api-keys/
+final apiKey = '<your_API_KEY>';
+```

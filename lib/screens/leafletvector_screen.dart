@@ -46,8 +46,6 @@ class _MapScreenState extends State<MapScreen> {
                   VectorTileLayer(
                     theme: _mapTheme(style, {ThemeLayerType.background, ThemeLayerType.fill}),
                     backgroundTheme: _backgroundTheme(),
-                    // tileOffset: TileOffset.mapbox, enable with mapbox
-                    // theme: style,
                     tileProviders: TileProviders(
                         // Name must match name under "sources" in theme
                         {'esri': _cachingTileProvider(_urlTemplate())}),
@@ -93,18 +91,7 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   String _urlTemplate() {
-    // IMPORTANT: See readme about matching tile provider with theme
-
-    // Stadia Maps source https://docs.stadiamaps.com/vector/
-    // return 'https://tiles.stadiamaps.com/data/openmaptiles/{z}/{x}/{y}.pbf?api_key=$apiKey';
-
-    // Maptiler source
-    // return 'https://api.maptiler.com/tiles/v3/{z}/{x}/{y}.pbf?key=$apiKey';
-
-    // Mapbox source https://docs.mapbox.com/api/maps/vector-tiles/#example-request-retrieve-vector-tiles
-    // return 'https://api.mapbox.com/v4/mapbox.mapbox-streets-v8/{z}/{x}/{y}.mvt?access_token=$mapboxApiKey';
-
-    // ArcGIS
+    // ArcGIS vector basemaps
     return 'https://basemaps-api.arcgis.com/arcgis/rest/services/World_Basemap_v2/VectorTileServer/tile/{z}/{y}/{x}.pbf?token=$apiKey';
   }
 
