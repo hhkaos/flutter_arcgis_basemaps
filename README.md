@@ -1,4 +1,4 @@
-# leaflet_vector
+# flutter_arcgis_basemaps
 
 This is a sample app showing how to load ArcGIS vector basemaps using a free 
 ArcGIS Platform account and Leaflet.js
