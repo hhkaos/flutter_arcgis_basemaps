@@ -110,11 +110,7 @@ class _MapScreenAsyncState extends State<MapScreenAsync> {
                       VectorTileLayer(
                         theme: _mapTheme(style, {ThemeLayerType.background, ThemeLayerType.fill}),
                         backgroundTheme: _backgroundTheme(),
-                        tileProviders: TileProviders(
-                            // Name must match name under "sources" in theme
-                            _stylesProvider(style)
-                        )
-                            // {'esri': _cachingTileProvider(_urlTemplate())}),
+                        tileProviders: TileProviders(_stylesProvider(style))
                       ),
                       // RasterTileLayer.TileLayer(
                       //   urlTemplate: 'https://ibasemaps-api.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}.png?access_token=$apiKey',
@@ -165,6 +161,8 @@ class _MapScreenAsyncState extends State<MapScreenAsync> {
     sources.keys.forEach((k) {
       // print("Key : $k");
       // print("Value : ${sources[k]}");
+
+      // Name must match name under "sources" in theme
       tiles["$k"] = _cachingTileProvider(sources[k]);
       _setCopyright(sources[k]["copyrightText"]);
     });
