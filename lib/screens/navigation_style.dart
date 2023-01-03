@@ -1,3 +1,5 @@
+import 'api_key.dart';
+
 final Map<String, dynamic> style = {
 	"version": 8,
 	"sprite": "https://cdn.arcgis.com/sharing/rest/content/items/63c47b7177f946b49902c24129b87252/resources/styles/../sprites/sprite?token=$apiKey",

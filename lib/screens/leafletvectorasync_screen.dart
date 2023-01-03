@@ -1,14 +1,14 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart' hide Theme;
-import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_map/src/layer/tile_layer/tile_layer.dart' as RasterTileLayer;
-import 'package:http/src/response.dart';
+// import 'package:flutter_map/src/layer/tile_layer/tile_layer.dart' as RasterTileLayer;
+import 'package:url_launcher/url_launcher.dart';
+import 'package:http/http.dart' show get;
 import 'package:latlong2/latlong.dart';
 import 'package:vector_map_tiles/vector_map_tiles.dart';
 import 'package:vector_tile_renderer/vector_tile_renderer.dart';
-import 'package:http/http.dart' show get;
+
 
 import 'api_key.dart';
 import 'arcgis_map_styles.dart';
@@ -41,17 +41,17 @@ class _MapScreenAsyncState extends State<MapScreenAsync> {
 
   Future<Map<String, dynamic>> loadStyle() async {
     final mapStyle = arcGISMapStyles[widget.style];
-    final style_uri = Uri(
+    final styleUri = Uri(
       scheme: 'https',
       host: 'basemaps-api.arcgis.com',
-      path: '/arcgis/rest/services/styles/${mapStyle}',
+      path: '/arcgis/rest/services/styles/$mapStyle',
       queryParameters: {
         "type": "style",
         "token": apiKey
       }
     );
-    print('Style URI: $style_uri');
-    final response = await get(style_uri);
+    print('Style URI: $styleUri');
+    final response = await get(styleUri);
 
     if (response.statusCode == 200) {
       return jsonDecode(response.body());
@@ -88,27 +88,6 @@ class _MapScreenAsyncState extends State<MapScreenAsync> {
                         InteractiveFlag.pinchMove |
                         InteractiveFlag.pinchZoom |
                         InteractiveFlag.doubleTapZoom),
-                    children: [
-                      // normally you would see TileLayer which provides raster tiles
-                      // instead this vector tile layer replaces the standard tile layer
-                      VectorTileLayer(
-                        theme: _mapTheme(style, {ThemeLayerType.background, ThemeLayerType.fill}),
-                        backgroundTheme: _backgroundTheme(),
-                        tileProviders: TileProviders(
-                            // Name must match name under "sources" in theme
-                            _stylesProvider(style)
-                        )
-                            // {'esri': _cachingTileProvider(_urlTemplate())}),
-                      ),
-                      // RasterTileLayer.TileLayer(
-                      //   urlTemplate: 'https://ibasemaps-api.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}.png?access_token={accessToken}',
-                      //   additionalOptions: {
-                      //       'accessToken': 'AAPK39aa473265fe44e8874200c112f7e277GmeD6hCGwWo9GzIPfbJk6G2nYhb1BgsAMOlIFrL8nzhI2GLRsPwEnQZS5UPklO_5',
-                      //   },
-                      //   userAgentPackageName: 'dev.fleaflet.flutter_map.example',
-                      // ),
-                      
-                    ],
                     nonRotatedChildren: [
                       AttributionWidget.defaultWidget(
                           source: '${copyrightText.substring(0,30)}...',
@@ -125,6 +104,27 @@ class _MapScreenAsyncState extends State<MapScreenAsync> {
                           },
                       )
                   ],
+                    children: [
+                      // normally you would see TileLayer which provides raster tiles
+                      // instead this vector tile layer replaces the standard tile layer
+                      VectorTileLayer(
+                        theme: _mapTheme(style, {ThemeLayerType.background, ThemeLayerType.fill}),
+                        backgroundTheme: _backgroundTheme(),
+                        tileProviders: TileProviders(
+                            // Name must match name under "sources" in theme
+                            _stylesProvider(style)
+                        )
+                            // {'esri': _cachingTileProvider(_urlTemplate())}),
+                      ),
+                      // RasterTileLayer.TileLayer(
+                      //   urlTemplate: 'https://ibasemaps-api.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}.png?access_token=$apiKey',
+                      //   additionalOptions: {
+                      //       'accessToken': apiKey,
+                      //   },
+                      //   userAgentPackageName: 'dev.fleaflet.flutter_map.example',
+                      // ),
+                      
+                    ],
                 )
               ),
               Row(

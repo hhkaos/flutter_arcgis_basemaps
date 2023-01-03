@@ -1,10 +1,4 @@
 import 'package:flutter/material.dart' hide Theme;
-import 'package:flutter_map/flutter_map.dart';
-import 'package:latlong2/latlong.dart';
-import 'package:leaflet_vector/screens/leafletvector_screen.dart';
-import 'package:vector_map_tiles/vector_map_tiles.dart';
-import 'package:vector_tile_renderer/vector_tile_renderer.dart';
-
 import 'screens/leafletvectorasync_screen.dart';
 
 void main() {
