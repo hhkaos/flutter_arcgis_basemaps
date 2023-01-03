@@ -7,7 +7,7 @@ ArcGIS Platform account and Leaflet.js using [flutter-vector-map-tiles](https://
 
 ## Getting Started
 
-Place a `api_key.dart` file within lib/screens with the following content (replacing the API key)
+Place a `api_key.dart` file within lib/src with the following content (replacing the API key)
 
 ```dart
 // Create a free account: https://developers.arcgis.com/sign-up
@@ -19,8 +19,8 @@ final apiKey = '<your_API_KEY>';
 
 This project has to Widgets:
 
-* MapScreen at `lib/screens/leafletvector_screen.dart`: this one load a static map style from `lib/screens/navigation_style.dart`
-* MapScreenAsync at `lib/screens/leafletvectorasync_screen.dart` which allows to set all map styles supported by ArcGIS using the values defined at `lib/screens/arcgis_map_styles.dart`.
+* MapScreen at `lib/src/leafletvector_screen.dart`: this one load a static map style from `lib/src/navigation_style.dart`
+* MapScreenAsync at `lib/src/leafletvectorasync_screen.dart` which allows to set all map styles supported by ArcGIS using the values defined at `lib/src/arcgis_map_styles.dart`.
 
 ## Gallery of supported basemaps
 

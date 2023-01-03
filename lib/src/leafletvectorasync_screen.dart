@@ -27,7 +27,7 @@ class MapScreenAsync extends StatefulWidget {
 class _MapScreenAsyncState extends State<MapScreenAsync> {
   final MapController _controller = MapController();
   late Map<String, dynamic> style;
-  late String copyrightText;
+  late String copyrightText = "Esri";
 
   _setCopyright(newCopyrightText){
     copyrightText = newCopyrightText;
@@ -67,7 +67,7 @@ class _MapScreenAsyncState extends State<MapScreenAsync> {
       
       if (snapshot.hasData) {
         // Build the widget with data.
-        style = snapshot.data!;
+        style = snapshot.data!;        
         
         return Scaffold(
           appBar: AppBar(
@@ -88,22 +88,6 @@ class _MapScreenAsyncState extends State<MapScreenAsync> {
                         InteractiveFlag.pinchMove |
                         InteractiveFlag.pinchZoom |
                         InteractiveFlag.doubleTapZoom),
-                    nonRotatedChildren: [
-                      AttributionWidget.defaultWidget(
-                          source: '${copyrightText.substring(0,30)}...',
-                          onSourceTapped: () async {
-                            final url = Uri(
-                              scheme: 'https',
-                              host: 'developers.arcgis.com',
-                              path: '/documentation/mapping-apis-and-services/deployment/basemap-attribution/'
-                              );
-                            if (!await launchUrl(url)) {
-                              throw 'Could not launch $url';
-                            }
-                            throw "Could not launch $url";
-                          },
-                      )
-                  ],
                     children: [
                       // normally you would see TileLayer which provides raster tiles
                       // instead this vector tile layer replaces the standard tile layer
@@ -121,6 +105,23 @@ class _MapScreenAsyncState extends State<MapScreenAsync> {
                       // ),
                       
                     ],
+                    nonRotatedChildren: [
+                      AttributionWidget.defaultWidget(
+                          source: '${copyrightText.substring(0,34)}...',
+                          onSourceTapped: () async {
+                            final url = Uri(
+                              scheme: 'https',
+                              host: 'developers.arcgis.com',
+                              path: '/documentation/mapping-apis-and-services/deployment/basemap-attribution/'
+                              );
+                            if (!await launchUrl(url)) {
+                              throw 'Could not launch $url';
+                            }
+                            throw "Could not launch $url";
+                          },
+                      )
+                  ],
+                    
                 )
               ),
               Row(

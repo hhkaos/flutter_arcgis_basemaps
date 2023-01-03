@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart' hide Theme;
-import 'screens/leafletvectorasync_screen.dart';
+import 'src/leafletvectorasync_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(),
       home: const MapScreenAsync(
         title: 'ArcGIS Vector map tiles',
-        style: "arcgis-human-geography-dark"
+        style: "arcgis-navigation"
       ),
     );
   }
