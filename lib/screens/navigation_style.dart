@@ -1,14 +1,14 @@
 final Map<String, dynamic> style = {
 	"version": 8,
-	"sprite": "https://cdn.arcgis.com/sharing/rest/content/items/63c47b7177f946b49902c24129b87252/resources/styles/../sprites/sprite?token=AAPK39aa473265fe44e8874200c112f7e277GmeD6hCGwWo9GzIPfbJk6G2nYhb1BgsAMOlIFrL8nzhI2GLRsPwEnQZS5UPklO_5",
-	"glyphs": "https://basemaps-api.arcgis.com/arcgis/rest/services/World_Basemap_v2/VectorTileServer/resources/fonts/{fontstack}/{range}.pbf?token=AAPK39aa473265fe44e8874200c112f7e277GmeD6hCGwWo9GzIPfbJk6G2nYhb1BgsAMOlIFrL8nzhI2GLRsPwEnQZS5UPklO_5",
+	"sprite": "https://cdn.arcgis.com/sharing/rest/content/items/63c47b7177f946b49902c24129b87252/resources/styles/../sprites/sprite?token=$apiKey",
+	"glyphs": "https://basemaps-api.arcgis.com/arcgis/rest/services/World_Basemap_v2/VectorTileServer/resources/fonts/{fontstack}/{range}.pbf?token=$apiKey",
 	"sources": {
 		"esri": {
 			"type": "vector",
-			"url": "https://basemaps-api.arcgis.com/arcgis/rest/services/World_Basemap_v2/VectorTileServer?token=AAPK39aa473265fe44e8874200c112f7e277GmeD6hCGwWo9GzIPfbJk6G2nYhb1BgsAMOlIFrL8nzhI2GLRsPwEnQZS5UPklO_5",
+			"url": "https://basemaps-api.arcgis.com/arcgis/rest/services/World_Basemap_v2/VectorTileServer?token=$apiKey",
 			"minzoom": 0,
 			"maxzoom": 16,
-			"tiles": ["https://basemaps-api.arcgis.com/arcgis/rest/services/World_Basemap_v2/VectorTileServer/tile/{z}/{y}/{x}.pbf?token=AAPK39aa473265fe44e8874200c112f7e277GmeD6hCGwWo9GzIPfbJk6G2nYhb1BgsAMOlIFrL8nzhI2GLRsPwEnQZS5UPklO_5"],
+			"tiles": ["https://basemaps-api.arcgis.com/arcgis/rest/services/World_Basemap_v2/VectorTileServer/tile/{z}/{y}/{x}.pbf?token=$apiKey"],
 			"copyrightText": "Sources: Esri, HERE, Garmin, FAO, NOAA, USGS, © OpenStreetMap contributors, and the GIS User Community",
 			"attribution": "Sources: Esri, HERE, Garmin, FAO, NOAA, USGS, © OpenStreetMap contributors, and the GIS User Community"
 		}
