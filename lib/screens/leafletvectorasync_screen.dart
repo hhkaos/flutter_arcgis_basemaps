@@ -192,7 +192,7 @@ class _MapScreenAsyncState extends State<MapScreenAsync> {
     return ThemeReader(logger: null).read(style).copyWith(types: mapTypes);
   }
 
-  Theme _mymaptheme(){
+  Theme _myMapTheme(){
     // maps are rendered using themes
     // to provide a dark theme do something like this:
     // if (MediaQuery.of(context).platformBrightness == Brightness.dark) return myDarkTheme();
@@ -200,7 +200,7 @@ class _MapScreenAsyncState extends State<MapScreenAsync> {
   }
 
   _backgroundTheme() {
-    return _mymaptheme()
+    return _myMapTheme()
         .copyWith(types: {ThemeLayerType.background, ThemeLayerType.fill});
   }
 
