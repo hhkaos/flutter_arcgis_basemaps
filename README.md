@@ -1,7 +1,7 @@
 # flutter_arcgis_basemaps
 
-This is a sample app showing how to load ArcGIS vector basemaps using a free 
-ArcGIS Platform account and Leaflet.js using [flutter-vector-map-tiles](https://github.com/greensopinion/flutter-vector-map-tiles)
+This is a sample app showing how to load ArcGIS vector basemaps using a [free 
+ArcGIS Platform account](https://developers.arcgis.com/sign-up/) and Leaflet.js using [flutter-vector-map-tiles](https://github.com/greensopinion/flutter-vector-map-tiles)
 
 ![VSCode Screenshot](./assets/screenshot-arcgis-flutter.png)
 
